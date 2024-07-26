@@ -1,0 +1,103 @@
+name: crunchies
+description: "A new Flutter project."
+
+publish_to: 'none' 
+
+
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+
+
+
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+
+
+
+  #Utility Package
+  url_launcher:
+  intl:
+  flutter_native_splash:
+  cached_network_image:
+  smooth_page_indicator:
+  flutter_rating_bar:
+  readmore:
+  http:
+
+
+  # Icons
+  cupertino_icons: ^1.0.6
+  iconsax:
+
+
+  # Firebase
+  firebase_core: ^2.31.1
+  firebase_auth: ^4.19.6
+  firebase_storage: ^11.7.6
+  cloud_firestore: ^4.17.4
+  connectivity_plus: ^5.0.2
+  logger: ^2.0.2+1
+
+
+  # State management
+  get: ^4.6.6
+  get_storage: ^2.1.1
+
+
+  # Product Specific
+  image_picker: ^1.0.7
+  shimmer: ^3.0.0
+  lottie: ^3.1.2
+  flutter_slidable: ^3.1.0
+  provider:
+  flutter_launcher_icons:
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/logo/logo2.png"
+
+  
+
+
+  flutter_lints: ^3.0.0
+
+
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/foods/
+    - assets/images/breads/
+    - assets/images/cakes/
+    - assets/images/crunches/
+    - assets/images/drinks/
+    - assets/images/foods/
+    - assets/images/ice_cream/
+    - assets/images/pastry/
+    - assets/images/promo/
+    - assets/images/protein/
+    - assets/images/shawarma/
+    - assets/logo/
+    - assets/onBoardings/
+    - assets/bannner/
+
+  
