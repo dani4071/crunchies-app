@@ -28,4 +28,11 @@ class danTexts {
   static const String verificationText = "Enter the 6 digit code sent to your Email address below";
   static const String forgotPasswordText = "Enter your phone number below to receive your OTP code";
 
+
+
+
+  static const String locationText1 = "Selected Outlet";
+  static const String locationText2 = "Crunchies Fried Chicken, 262";
+  static const String locationText3 = "Agbani Road, Enugu";
+
 }

@@ -14,6 +14,7 @@ class danImages {
   static const String Banner1 = "assets/bannner/banner1.jpg";
   static const String Banner2 = "assets/bannner/banner2.jpg";
   static const String Banner3 = "assets/bannner/banner3.jpg";
+  static const String backgroundimage = "assets/bannner/backgroundimage.jpg";
 
   /// ----------------------------- Crunches ------------------------///
   static const String Blue_Celebration_Cake = "assets/images/crunches/Blue Celebraation Cake.jpg";

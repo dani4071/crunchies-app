@@ -101,7 +101,7 @@ class loginScreen extends StatelessWidget {
                 roundedElevatedButton(
                   text: "Login",
                   onPressed: () {
-                  Get.offAll(() => navigationMenu());
+                  // Get.offAll(() => navigationMenu());
                 },),
 
                 const SizedBox(height: 10,),
