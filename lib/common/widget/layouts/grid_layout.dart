@@ -1,94 +1,79 @@
 import 'package:flutter/material.dart';
 
-import '../../../../common/global/color.dart';
-import '../../../../common/widget/products/favourite_icon/favourite_icon.dart';
-import '../../models/category_model.dart';
+import '../../../features/shop/models/category_model.dart';
+import '../products/product_carrd/product_card_vertical.dart';
+
+class danGridLayout extends StatelessWidget {
+  const danGridLayout({
+    super.key,
+    // required this.itemBuilder,
+    // required this.itemCount,
+    // this.mainAxisExtent = 0.43,
+  });
 
 
-class cartScreen extends StatelessWidget {
-  const cartScreen({super.key});
+  // final Widget? Function(BuildContext, int) itemBuilder;
+  // final int itemCount;
+  // final double? mainAxisExtent;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: true,
-        title: Text("Cart"),
-      ),
 
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(10),
-          child: Column(
-            children: [
+    // final screenHeight = danHelperFunction.screenHeight();
 
-            ListView.builder(
-            itemCount: myProducts.allProduct.length,
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (_, index) {
-                final data = myProducts.allProduct[index];
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 10.0),
-                  child: Container(
-                    width: double.infinity,
-                    height: MediaQuery.of(context).size.width / 3.5,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white,
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Container(
-                            height: double.infinity,
-                            width: MediaQuery.of(context).size.width * 0.3,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.green,
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.asset(
-                                data.image,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("aaaaaaaaaa"),
-                              Text("aaaaaaaaaa"),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                             Text("-"),
-                             Text("1"),
-                             Text("+"),
-                            ],
-                          )
-                        ],
-                      )
-                    ),
-                  ),
-                );
-              },
-            )
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        double width = constraints.maxWidth;
+        double desiredWidth = 150; // Desired width of the items
+        double aspectRatio; // To be calculated
 
-            ],
-          ),
+        // Calculate the item width dynamically
+        double itemWidth = width / 2 - 12; // Adjust for spacing
+
+        // Calculate item height dynamically based on the screen size
+        // Here, you can use a percentage of the available height or a fixed ratio
+        double itemHeight = itemWidth * 1.5; // Example aspect ratio of 1.5
+
+        // Calculate the aspect ratio
+        aspectRatio = itemWidth / itemHeight;
+
+
+      return GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: aspectRatio,
+          crossAxisSpacing: 12,
+          mainAxisSpacing: 12,
         ),
-      ),
+        scrollDirection: Axis.vertical,
+        itemCount: myProducts.allProduct.length,
+        // itemCount: itemCount,
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        itemBuilder: (context, index) {
+          final foods = myProducts.allProduct[index];
+          return productCardVertical(foods: foods);
+        },
+        // itemBuilder: itemBuilder,
+      );
+      },
     );
   }
 }
 
 
+
+// crossAxisCount: (width /aspectRatio).floor(),
+// childAspectRatio: (90 / 135),
+// childAspectRatio: ((MediaQuery.of(context).size.height / 7) / (MediaQuery.of(context).size.width / 2)),
+// childAspectRatio: MediaQuery.of(context).size.width / 550,
+
+
+
+
+
 class myProducts {
+
   static List<Product> allProduct = [
     Product(
         id: 1,
@@ -97,7 +82,8 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'Adiddassss',
@@ -105,7 +91,8 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'ptttike',
@@ -113,7 +100,8 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'pumaaaa',
@@ -121,7 +109,8 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'pumaaaa',
@@ -129,7 +118,8 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'Poloooooo',
@@ -137,7 +127,8 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'Adiddassss',
@@ -145,7 +136,8 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'ptttike',
@@ -153,7 +145,8 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'pumaaaa',
@@ -161,7 +154,8 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'pumaaaa',
@@ -169,8 +163,10 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
   ];
+
 
   static List<Product> jacketProduct = [
     Product(
@@ -180,7 +176,8 @@ class myProducts {
         image: 'assets/bannner/banner2.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'jack',
@@ -188,7 +185,8 @@ class myProducts {
         image: 'assets/bannner/banner2.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'mew',
@@ -196,7 +194,8 @@ class myProducts {
         image: 'assets/bannner/banner2.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'wen',
@@ -204,8 +203,10 @@ class myProducts {
         image: 'assets/bannner/banner2.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
   ];
+
 
   static List<Product> mottoProduct = [
     Product(
@@ -215,7 +216,8 @@ class myProducts {
         image: 'assets/bannner/banner3.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'mazda',
@@ -223,7 +225,8 @@ class myProducts {
         image: 'assets/bannner/banner3.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'ferrera',
@@ -231,7 +234,8 @@ class myProducts {
         image: 'assets/bannner/banner3.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'porche',
@@ -239,6 +243,11 @@ class myProducts {
         image: 'assets/bannner/banner3.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
   ];
 }
+
+
+
+

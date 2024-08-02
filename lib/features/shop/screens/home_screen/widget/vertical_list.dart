@@ -1,94 +1,106 @@
 import 'package:flutter/material.dart';
 
-import '../../../../common/global/color.dart';
-import '../../../../common/widget/products/favourite_icon/favourite_icon.dart';
-import '../../models/category_model.dart';
+import '../../../../../common/widget/products/favourite_icon/favourite_icon.dart';
+import '../../../../../utilis/theme/custom_theme/text_theme.dart';
+import '../../../models/category_model.dart';
 
+class homeVerticalList extends StatelessWidget {
+  const homeVerticalList({
+    super.key,
+  });
 
-class cartScreen extends StatelessWidget {
-  const cartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: true,
-        title: Text("Cart"),
-      ),
 
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(10),
-          child: Column(
-            children: [
+    final texttheme = danTexttheme.lightTexttheme;
 
-            ListView.builder(
-            itemCount: myProducts.allProduct.length,
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (_, index) {
-                final data = myProducts.allProduct[index];
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 10.0),
-                  child: Container(
-                    width: double.infinity,
-                    height: MediaQuery.of(context).size.width / 3.5,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white,
+    return ListView.builder(
+      itemCount: myProducts.allProduct.length,
+      shrinkWrap: true,
+      scrollDirection: Axis.vertical,
+      physics: NeverScrollableScrollPhysics(),
+      itemBuilder: (_, index) {
+        final data = myProducts.allProduct[index];
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.blue
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Stack(
+                  children: [
+                    Container(
+                      height: MediaQuery.of(context).size.width / 3,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.asset(
+                          data.image,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Container(
-                            height: double.infinity,
-                            width: MediaQuery.of(context).size.width * 0.3,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.green,
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.asset(
-                                data.image,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("aaaaaaaaaa"),
-                              Text("aaaaaaaaaa"),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                             Text("-"),
-                             Text("1"),
-                             Text("+"),
-                            ],
-                          )
-                        ],
-                      )
-                    ),
+                    Positioned(
+                      top: 5,
+                      right: 5,
+                      child: danFavouriteIcon(isHome: false,),
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8.0,
+                      vertical: 5
                   ),
-                );
-              },
-            )
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(data.name, style: texttheme.titleSmall,),
+                      Text("\u20A6${data.price}", style: texttheme.titleSmall,),
+                    ],
+                  ),
+                ),
+              ],
+            ),
 
-            ],
+
+
+            // child: Row(
+            //   children: [
+            //     Container(
+            //       color: Colors.green,
+            //       height: 50,
+            //       width: 50,
+            //     ),
+            //     Column(
+            //       children: [
+            //         Text("moi moi"),
+            //         Text("moi moi"),
+            //         roundedElevatedButton(text: "text", onPressed: (){}),
+            //       ],
+            //     ),
+            //     danFavouriteIcon(),
+            //   ],
+            // ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
 
 
 class myProducts {
+
   static List<Product> allProduct = [
     Product(
         id: 1,
@@ -97,7 +109,8 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'Adiddassss',
@@ -105,7 +118,8 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'ptttike',
@@ -113,7 +127,8 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'pumaaaa',
@@ -121,7 +136,8 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'pumaaaa',
@@ -129,7 +145,8 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'Poloooooo',
@@ -137,7 +154,8 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'Adiddassss',
@@ -145,7 +163,8 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'ptttike',
@@ -153,7 +172,8 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'pumaaaa',
@@ -161,7 +181,8 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'pumaaaa',
@@ -169,8 +190,10 @@ class myProducts {
         image: 'assets/bannner/banner1.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
   ];
+
 
   static List<Product> jacketProduct = [
     Product(
@@ -180,7 +203,8 @@ class myProducts {
         image: 'assets/bannner/banner2.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'jack',
@@ -188,7 +212,8 @@ class myProducts {
         image: 'assets/bannner/banner2.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'mew',
@@ -196,7 +221,8 @@ class myProducts {
         image: 'assets/bannner/banner2.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'wen',
@@ -204,8 +230,10 @@ class myProducts {
         image: 'assets/bannner/banner2.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
   ];
+
 
   static List<Product> mottoProduct = [
     Product(
@@ -215,7 +243,8 @@ class myProducts {
         image: 'assets/bannner/banner3.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'mazda',
@@ -223,7 +252,8 @@ class myProducts {
         image: 'assets/bannner/banner3.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'ferrera',
@@ -231,7 +261,8 @@ class myProducts {
         image: 'assets/bannner/banner3.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
     Product(
         id: 1,
         name: 'porche',
@@ -239,6 +270,7 @@ class myProducts {
         image: 'assets/bannner/banner3.jpg',
         category: 'Trending',
         description: 'clear lines',
-        quantity: 1),
+        quantity: 1
+    ),
   ];
 }

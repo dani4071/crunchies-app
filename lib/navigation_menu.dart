@@ -1,7 +1,6 @@
 import 'package:crunchies/common/global/color.dart';
 import 'package:crunchies/features/personalization/screens/profile/profile_screen.dart';
 import 'package:crunchies/features/shop/screens/favourite/favourite_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'features/shop/screens/cart/cart_screen.dart';

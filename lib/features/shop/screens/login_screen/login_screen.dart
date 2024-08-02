@@ -1,11 +1,7 @@
 import 'package:crunchies/common/button/rounded_elevated_button.dart';
 import 'package:crunchies/common/global/color.dart';
-import 'package:crunchies/common/widget/home.dart';
-import 'package:crunchies/features/shop/screens/home_screen/home_screen.dart';
 import 'package:crunchies/features/shop/screens/login_screen/widgets/forgot_password/forgot_password_screen.dart';
-import 'package:crunchies/features/shop/screens/on_boarding/onboarding_screen.dart';
 import 'package:crunchies/features/shop/screens/signUp_screen/signup_screen.dart';
-import 'package:crunchies/navigation_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

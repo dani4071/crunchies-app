@@ -1,92 +1,114 @@
 import 'package:flutter/material.dart';
+import '../../../../../common/global/color.dart';
+import '../../../../../common/widget/products/favourite_icon/favourite_icon.dart';
+import '../../../models/category_model.dart';
 
-import '../../../../common/global/color.dart';
-import '../../../../common/widget/products/favourite_icon/favourite_icon.dart';
-import '../../models/category_model.dart';
-
-
-class cartScreen extends StatelessWidget {
-  const cartScreen({super.key});
+class favoriteList extends StatelessWidget {
+  const favoriteList({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: true,
-        title: Text("Cart"),
-      ),
+    return ListView.builder(
+      itemCount: myProducts.allProduct.length,
+      shrinkWrap: true,
+      scrollDirection: Axis.vertical,
+      physics: NeverScrollableScrollPhysics(),
+      itemBuilder: (_, index) {
+        final data = myProducts.allProduct[index];
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 10.0),
+          child: Container(
+            width: double.infinity,
+            height: MediaQuery.of(context).size.width / 3.5,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.white,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
 
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(10),
-          child: Column(
-            children: [
+                  /// iamge
 
-            ListView.builder(
-            itemCount: myProducts.allProduct.length,
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (_, index) {
-                final data = myProducts.allProduct[index];
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 10.0),
-                  child: Container(
-                    width: double.infinity,
-                    height: MediaQuery.of(context).size.width / 3.5,
+                  Container(
+                    height: double.infinity,
+                    width: MediaQuery.of(context).size.width * 0.3,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Colors.white,
+                      color: Colors.green,
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Container(
-                            height: double.infinity,
-                            width: MediaQuery.of(context).size.width * 0.3,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.green,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        data.image,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+
+                  SizedBox(width: 10),
+
+                  /// Texts and button
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          data.name,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
+                          ),
+                        ),
+                        Text(
+                          "\u20A6${data.price}",
+                          style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.width * 0.035,
+                          ),
+                        ),
+                        Spacer(),
+                        SizedBox(
+                          width: double.infinity,
+                          height: MediaQuery.of(context).size.width * 0.07,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: wColor,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                    side: BorderSide(width: 1, color: gColor)
+                                )
                             ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.asset(
-                                data.image,
-                                fit: BoxFit.cover,
+                            child: Text(
+                              "Add to bag",
+                              style: TextStyle(
+                                  fontSize: MediaQuery.of(context).size.width * 0.035,
+                                  color: gColor
                               ),
                             ),
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("aaaaaaaaaa"),
-                              Text("aaaaaaaaaa"),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                             Text("-"),
-                             Text("1"),
-                             Text("+"),
-                            ],
-                          )
-                        ],
-                      )
+                        ),
+                      ],
                     ),
                   ),
-                );
-              },
-            )
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.025),
 
-            ],
+                  /// Icon
+                  danFavouriteIcon(isHome: true,),
+                ],
+              ),
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
-
 
 class myProducts {
   static List<Product> allProduct = [

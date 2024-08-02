@@ -152,4 +152,21 @@ class danImages {
       "assets/images/promo/promo_icon-removebg-preview.png";
   static const String Promo1 = "assets/images/promo/Promo1.jpg";
   static const String Promo2 = "assets/images/promo/Promo2.jpg";
+
+
+  /// -----------------------------category ---------------------------------///
+  static const String bread = "assets/food_item/bread.png";
+  static const String cake = "assets/food_item/cake.png";
+  static const String donut = "assets/food_item/donut.png";
+  static const String drink = "assets/food_item/drink.png";
+  static const String iceCream = "assets/food_item/ice-cream.png";
+  static const String shawarma = "assets/food_item/shawarma.png";
+  static const String soup = "assets/food_item/soup.png";
+  static const String turkey = "assets/food_item/turkey.png";
+  static const String promo = "assets/food_item/price-tag.png";
+
+
+
+
+  static const String profile = "assets/profile_image/user.png";
 }

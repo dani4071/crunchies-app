@@ -2,7 +2,6 @@ import 'package:crunchies/common/button/rounded_elevated_button.dart';
 import 'package:crunchies/features/shop/screens/signUp_screen/widget/verification_screen/verification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../common/global/color.dart';
 import '../../../../utilis/theme/custom_theme/text_theme.dart';

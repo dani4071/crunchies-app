@@ -1,8 +1,5 @@
-import 'package:crunchies/common/widget/home.dart';
-import 'package:crunchies/features/shop/screens/on_boarding/onboarding_screen.dart';
 import 'package:crunchies/firebase_options.dart';
 import 'package:crunchies/navigation_menu.dart';
-import 'package:crunchies/test.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

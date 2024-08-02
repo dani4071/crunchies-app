@@ -3,8 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../features/personalization/models/banner_model.dart';
-import '../../features/personalization/models/crunches_model.dart';
-import '../../features/personalization/models/food_model.dart';
 import '../services/firebase_storage_service.dart';
 
 class dummyRepository extends GetxController {

@@ -100,5 +100,7 @@ flutter:
     - assets/logo/
     - assets/onBoardings/
     - assets/bannner/
+    - assets/food_item/
+    - assets/profile_image/
 
   
